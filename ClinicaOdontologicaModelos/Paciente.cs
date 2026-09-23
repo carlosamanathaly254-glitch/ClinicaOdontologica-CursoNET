@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ClinicaOdontologicaModelos
 {
     [Table("Pacientes")]
-    public class Pacientes
+    public class Paciente
     {
         [Key]
         [Column("id_paciente")]

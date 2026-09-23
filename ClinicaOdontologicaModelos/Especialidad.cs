@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ClinicaOdontologicaModelos
+{
+    [Table("Especialidades")]
+    public class Especialidad
+    {
+        [Key]
+        [Column("id_especialidad")]
+        public int IdEspecialidad { get; set; }
+
+        [Column("nombre_especialidad")]
+        [MaxLength(50)]
+        [Required]
+        public string NombreEspecialidad { get; set; }
+
+        [Column("descripcion")]
+        [MaxLength(200)]
+        [Required]
+        public string Descripcion { get; set; }
+
+
+    }
+}
