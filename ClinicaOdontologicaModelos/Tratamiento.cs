@@ -27,7 +27,7 @@ namespace ClinicaOdontologicaModelos
         
         [Column("duracionMin")]
         [Required]
-        public TimeOnly duracionMin { get; set; }
+        public int duracionMin { get; set; }
 
     }
 }
