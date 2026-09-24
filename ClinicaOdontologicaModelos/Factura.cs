@@ -40,6 +40,6 @@ namespace ClinicaOdontologicaModelos
         [ForeignKey("cita")]
         [Column("id_cita")]
         public int IdCita { get; set; }
-        public Cita Cita { get; set; }
+        public Cita? Cita { get; set; }
     }
 }

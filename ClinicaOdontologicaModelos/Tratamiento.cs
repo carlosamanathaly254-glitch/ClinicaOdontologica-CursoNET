@@ -24,10 +24,15 @@ namespace ClinicaOdontologicaModelos
         [Column("costoBase", TypeName = "numeric(18,2)")]
         [Required]
         public decimal costoBase { get; set; }
-        
+
         [Column("duracionMin")]
         [Required]
         public int duracionMin { get; set; }
 
+
+        //Relaciones
+        List<DetalleCita>? DetallesCita{ get; set; } = new List<DetalleCita>();
+
+
     }
-}
+    }

@@ -33,5 +33,8 @@ namespace ClinicaOdontologicaModelos
         [Column("id_especialidad")]
         [Required]
         public int IdEspecialidad { get; set; }
+
+        List <Cita>? Citas { get; set; } = new List<Cita>();
+
     }
 }

@@ -12,20 +12,20 @@ namespace ClinicaOdontologicaModelos
     public class Receta
     {
         [Key]
-        [Column("id_receta")]
+        [Column("id_receta", TypeName = "serial")]
         public int IdReceta { get; set; }
 
-        [Column("fecha_emision")]
+        [Column("fecha_emision", TypeName = "date")]
         [Required]
         public DateTime FechaEmision { get; set; }
 
-        [Column("indicaciones")]
+        [Column("indicaciones", TypeName = "text")]
         [Required]
         public string Indicaciones { get; set; }
 
         [ForeignKey("cita")]
         [Column("id_cita")]
         public int IdCita { get; set; }
-        public Cita Cita { get; set; }
+        public Cita? cita { get; set; }
     }
 }
