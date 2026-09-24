@@ -12,10 +12,10 @@ namespace ClinicaOdontologicaModelos
     public class Cita
     {
         [Key]
-        [Column("id_cita")]
+        [Column("id_cita", TypeName = "serial")]
         public int IdCita { get; set; }
 
-        [Column("fecha_cita")]
+        [Column("fecha_cita", TypeName = "timestamp")]
         [Required]
         public TimeOnly FechaCita { get; set; }
 
@@ -32,17 +32,24 @@ namespace ClinicaOdontologicaModelos
         [ForeignKey("paciente")]
         [Column("id_paciente")]
         public int IdPaciente { get; set; }
-        public Paciente Paciente { get; set; }
+        
 
         [ForeignKey("odontologo")]
         [Column("id_odontologo")]
         public int IdOdontologo { get; set; }
-        public Odontologo Odontologo { get; set; }
+        
 
         [ForeignKey("consultorio")]
         [Column("id_consultorio")]
         public int IdConsultorio { get; set; }
-        public Consultorio Consultorio { get; set; }
+        
+
+
+        //Objetos de navegación
+        public Paciente? paciente { get; set; }
+        public Odontologo odontologo { get; set; }
+        public Consultorio? consultorio { get; set; }
+
 
         // Relaciones
         List<DetalleCita>? DetallesCita { get; set; } = new List<DetalleCita>();

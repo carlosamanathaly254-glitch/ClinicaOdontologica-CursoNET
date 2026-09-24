@@ -12,7 +12,7 @@ namespace ClinicaOdontologicaModelos
     public class Especialidad
     {
         [Key]
-        [Column("id_especialidad")]
+        [Column("id_especialidad", TypeName = "serial")]
         public int IdEspecialidad { get; set; }
 
         [Column("nombre_especialidad")]

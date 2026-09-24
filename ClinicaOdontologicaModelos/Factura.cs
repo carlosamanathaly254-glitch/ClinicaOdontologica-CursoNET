@@ -12,10 +12,10 @@ namespace ClinicaOdontologicaModelos
     public class Factura
     {
         [Key]
-        [Column("id_factura")]
+        [Column("id_factura", TypeName = "serial")]
         public int IdFactura { get; set; }
 
-        [Column("fecha_emision")]
+        [Column("fecha_emision", TypeName = "timestamp")]
         [Required]
         public DateTime FechaFactura { get; set; }
 
@@ -40,6 +40,6 @@ namespace ClinicaOdontologicaModelos
         [ForeignKey("cita")]
         [Column("id_cita")]
         public int IdCita { get; set; }
-        public Cita? Cita { get; set; }
+        public Cita? cita { get; set; }
     }
 }

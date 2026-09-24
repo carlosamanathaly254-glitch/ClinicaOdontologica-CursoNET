@@ -12,7 +12,7 @@ namespace ClinicaOdontologicaModelos
     public class DetalleCita
     {
         [Key]
-        [Column("id_detalle_cita")]
+        [Column("id_detalle_cita", TypeName = "serial")]
         public int IdDetalleCita { get; set; }
 
         [Column("costo_aplicado", TypeName = "numeric(10,2)")]
@@ -27,6 +27,6 @@ namespace ClinicaOdontologicaModelos
         [ForeignKey("cita")]
         [Column("id_cita")]
         public int IdCita { get; set; }
-        public Cita? Cita { get; set; }
+        public Cita? cita { get; set; }
     }
 }

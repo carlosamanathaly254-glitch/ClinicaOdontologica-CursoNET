@@ -12,16 +12,16 @@ namespace ClinicaOdontologicaModelos
     public class Tratamiento
     {
         [Key]
-        [Column("IdTratamiento")]
+        [Column("IdTratamiento", TypeName = "serial")]
 
         public int IdTratamiento { get; set; }
 
         [Column("nombreTratamiento")]
-        [MaxLength(50)]
+        [MaxLength(100)]
         [Required]
         public string nombreTratamiento { get; set; }
 
-        [Column("costoBase", TypeName = "numeric(18,2)")]
+        [Column("costoBase", TypeName = "numeric(10,2)")]
         [Required]
         public decimal costoBase { get; set; }
 

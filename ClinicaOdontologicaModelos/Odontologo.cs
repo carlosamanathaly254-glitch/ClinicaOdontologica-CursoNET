@@ -12,7 +12,7 @@ namespace ClinicaOdontologicaModelos
     public class Odontologo
     {
         [Key]
-        [Column("id_odontologo")]
+        [Column("id_odontologo", TypeName = "serial")]
         public int IdOdontologo { get; set; }
 
         [Column("nombres")]
@@ -30,9 +30,11 @@ namespace ClinicaOdontologicaModelos
         [Required]
         public string RegistroMedico { get; set; }
 
+        [ForeignKey("especialidad")]
         [Column("id_especialidad")]
         [Required]
         public int IdEspecialidad { get; set; }
+        public Especialidad? especialidad { get; set; }
 
         List <Cita>? Citas { get; set; } = new List<Cita>();
 
