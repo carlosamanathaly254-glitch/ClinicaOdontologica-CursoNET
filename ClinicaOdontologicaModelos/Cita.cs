@@ -12,10 +12,10 @@ namespace ClinicaOdontologicaModelos
     public class Cita
     {
         [Key]
-        [Column("id_cita", TypeName = "serial")]
+        [Column("id_cita")]
         public int IdCita { get; set; }
 
-        [Column("fecha_cita", TypeName = "timestamp")]
+        [Column("fecha_cita")]
         [Required]
         public TimeOnly FechaCita { get; set; }
 

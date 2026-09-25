@@ -12,7 +12,7 @@ namespace ClinicaOdontologicaModelos
     public class Receta
     {
         [Key]
-        [Column("id_receta", TypeName = "serial")]
+        [Column("id_receta")]
         public int IdReceta { get; set; }
 
         [Column("fecha_emision", TypeName = "date")]

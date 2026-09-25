@@ -12,7 +12,7 @@ namespace ClinicaOdontologicaModelos
     public class Tratamiento
     {
         [Key]
-        [Column("IdTratamiento", TypeName = "serial")]
+        [Column("IdTratamiento")]
 
         public int IdTratamiento { get; set; }
 
