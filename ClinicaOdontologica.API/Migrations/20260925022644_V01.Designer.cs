@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ClinicaOdontologica.API.Migrations
 {
     [DbContext(typeof(ClinicaOdontologicaAPIContext))]
-    [Migration("20260925020918_V01")]
+    [Migration("20260925022644_V01")]
     partial class V01
     {
         /// <inheritdoc />

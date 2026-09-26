@@ -44,6 +44,6 @@ namespace ClinicaOdontologicaModelos
         public string Telefono { get; set; }
 
         List<Cita>? Citas { get; set; } = new List<Cita>();
-        public HistorialMedico? HistorialMedico { get; set; }
+        
     }
 }

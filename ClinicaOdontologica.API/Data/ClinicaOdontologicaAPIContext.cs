@@ -13,4 +13,14 @@ public class ClinicaOdontologicaAPIContext(DbContextOptions<ClinicaOdontologicaA
     public DbSet<ClinicaOdontologicaModelos.Receta> Recetas { get; set; } = default!;
     public DbSet<ClinicaOdontologicaModelos.Tratamiento> Tratamientos { get; set; } = default!;
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        // Fuerza a que la fecha de la cita se mapee correctamente evitando conflictos con 'time without time zone'
+        modelBuilder.Entity<ClinicaOdontologicaModelos.Cita>()
+            .Property(c => c.FechaCita)
+            .HasColumnType("timestamp without time zone");
+    }
+
 }

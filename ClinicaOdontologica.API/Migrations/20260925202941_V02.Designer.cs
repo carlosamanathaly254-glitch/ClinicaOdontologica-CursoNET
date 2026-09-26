@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -10,9 +11,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ClinicaOdontologica.API.Migrations
 {
     [DbContext(typeof(ClinicaOdontologicaAPIContext))]
-    partial class ClinicaOdontologicaAPIContextModelSnapshot : ModelSnapshot
+    [Migration("20260925202941_V02")]
+    partial class V02
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,8 +39,8 @@ namespace ClinicaOdontologica.API.Migrations
                         .HasColumnType("character varying(20)")
                         .HasColumnName("estado_cita");
 
-                    b.Property<DateTime>("FechaCita")
-                        .HasColumnType("timestamp without time zone")
+                    b.Property<TimeOnly>("FechaCita")
+                        .HasColumnType("time without time zone")
                         .HasColumnName("fecha_cita");
 
                     b.Property<int>("IdConsultorio")

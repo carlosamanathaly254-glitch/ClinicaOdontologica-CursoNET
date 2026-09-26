@@ -17,7 +17,7 @@ namespace ClinicaOdontologicaModelos
 
         [Column("fecha_cita")]
         [Required]
-        public TimeOnly FechaCita { get; set; }
+        public DateTime FechaCita { get; set; }
 
         [Column("motivo")]
         [MaxLength(200)]
@@ -47,7 +47,7 @@ namespace ClinicaOdontologicaModelos
 
         //Objetos de navegación
         public Paciente? paciente { get; set; }
-        public Odontologo odontologo { get; set; }
+        public Odontologo? odontologo { get; set; }
         public Consultorio? consultorio { get; set; }
 
 
