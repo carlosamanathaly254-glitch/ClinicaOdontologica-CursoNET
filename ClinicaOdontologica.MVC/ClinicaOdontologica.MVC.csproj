@@ -20,8 +20,4 @@
     <ProjectReference Include="..\ClinicaOdontologicaModelos\ClinicaOdontologicaModelos.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Temp\" />
-  </ItemGroup>
-
 </Project>
