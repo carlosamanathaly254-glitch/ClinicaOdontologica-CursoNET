@@ -1,14 +1,14 @@
 using Microsoft.EntityFrameworkCore;
+using ClinicaOdontologica.Consumer;
 using ClinicaOdontologicaModelos;
-namespace ClinicaOdontologica.MVC
-{
-    public class Program
+
+public class Program
     {
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            
 
+        CRUD<Cita>.Endpoint = "https://localhost:7294/api/Citas";
             
 
             // Add services to the container.
@@ -38,4 +38,4 @@ namespace ClinicaOdontologica.MVC
             app.Run();
         }
     }
-}
+
