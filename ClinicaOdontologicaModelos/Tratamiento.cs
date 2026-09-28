@@ -31,7 +31,7 @@ namespace ClinicaOdontologicaModelos
 
 
         //Relaciones
-        List<DetalleCita>? DetallesCita{ get; set; } = new List<DetalleCita>();
+        public List<DetalleCita>? DetallesCita{ get; set; } = new List<DetalleCita>();
 
 
     }

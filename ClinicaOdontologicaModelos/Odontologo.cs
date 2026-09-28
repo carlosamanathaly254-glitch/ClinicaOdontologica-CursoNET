@@ -36,7 +36,7 @@ namespace ClinicaOdontologicaModelos
         public int IdEspecialidad { get; set; }
         public Especialidad? especialidad { get; set; }
 
-        List <Cita>? Citas { get; set; } = new List<Cita>();
+        public List <Cita>? Citas { get; set; } = new List<Cita>();
 
     }
 }

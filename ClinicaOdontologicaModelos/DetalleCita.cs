@@ -27,6 +27,13 @@ namespace ClinicaOdontologicaModelos
         [ForeignKey("cita")]
         [Column("id_cita")]
         public int IdCita { get; set; }
+
+        [ForeignKey("tratamiento")]
+        [Column("id_tratamiento")]
+        public int IdTratamiento { get; set; }
+
+        //Objetos de navgeación
         public Cita? cita { get; set; }
+        public Tratamiento? tratamiento { get; set; }
     }
 }

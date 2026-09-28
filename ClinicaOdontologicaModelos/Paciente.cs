@@ -43,7 +43,7 @@ namespace ClinicaOdontologicaModelos
         [MaxLength(10)]
         public string Telefono { get; set; }
 
-        List<Cita>? Citas { get; set; } = new List<Cita>();
+        public List<Cita>? Citas { get; set; } = new List<Cita>();
         
     }
 }
