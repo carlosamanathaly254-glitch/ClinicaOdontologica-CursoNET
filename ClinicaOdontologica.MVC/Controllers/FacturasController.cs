@@ -1,74 +1,77 @@
-using Microsoft.AspNetCore.Mvc;
+
 using ClinicaOdontologica.Consumer;
 using ClinicaOdontologicaModelos;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
-public class CitasController : Controller
+public class FacturasController : Controller
 {
-    // GET: CITAS
+
+    // GET: FACTURAS
     public ActionResult Index()
     {
-        var citas = CRUD<Cita>.GetAll();
-        return View(citas);
+        var facturas = CRUD<Factura>.GetAll();
+        return View(facturas);
     }
 
-    // GET: CITAS/Details/5
-    public ActionResult Details(int idcita)
+    // GET: FACTURAS/Details/5
+    public ActionResult Details(int idfactura)
     {
-        var cita = CRUD<Cita>.GetById(idcita);
-        if (idcita == null)
+        var factura = CRUD<Factura>.GetById(idfactura);
+        if (idfactura == null)
         {
             return NotFound();
         }
-            return View(cita);
+        return View(factura);
     }
 
-    // GET: CITAS/Create
+    // GET: FACTURAS/Create
     public ActionResult Create()
     {
         return View();
     }
 
-    // POST: CITAS/Create
+    // POST: FACTURAS/Create
     // To protect from overposting attacks, enable the specific properties you want to bind to.
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult Create( Cita cita)
+    public ActionResult Create(Factura factura)
     {
         try
         {
-            CRUD<Cita>.Create(cita);
+            CRUD<Factura>.Create(factura);
             return RedirectToAction(nameof(Index));
         }
         catch (Exception ex)
         {
             // Handle the exception (e.g., log it, display an error message, etc.)
-            ModelState.AddModelError("",ex.Message);
-            return View(cita);
+            ModelState.AddModelError("", ex.Message);
+            return View(factura);
         }
     }
 
-    // GET: CITAS/Edit/5
-    public ActionResult Edit(int idcita)
+    // GET: FACTURAS/Edit/5
+    public ActionResult Edit(int idfactura)
     {
-        var cita = CRUD<Cita>.GetById(idcita);
-        if (cita == null)
+        var factura = CRUD<Factura>.GetById(idfactura);
+        if (factura == null)
         {
             return NotFound();
         }
-        return View(cita);
+        return View(factura);
     }
 
-    // POST: CITAS/Edit/5
+    // POST: FACTURAS/Edit/5
     // To protect from overposting attacks, enable the specific properties you want to bind to.
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult Edit(int idcita, Cita cita)
+    public ActionResult Edit(int idfactura, Factura factura)
     {
         try
         {
-            CRUD<Cita>.Update(idcita, cita);
+            CRUD<Factura>.Update(idfactura, factura);
             return RedirectToAction(nameof(Index));
 
         }
@@ -76,38 +79,36 @@ public class CitasController : Controller
         {
             // Handle the exception (e.g., log it, display an error message, etc.)
             ModelState.AddModelError("", ex.Message);
-            return View(cita);
+            return View(factura);
         }
     }
 
-    // GET: CITAS/Delete/5
-    public ActionResult Delete(int idcita)
+    // GET: FACTURAS/Delete/5
+    public ActionResult Delete(int idfactura)
     {
-        var cita = CRUD<Cita>.GetById(idcita);
-        if(cita == null)
+        var factura = CRUD<Factura>.GetById(idfactura);
+        if (factura == null)
         {
             return NotFound();
         }
 
-        return View(cita);
+        return View(factura);
     }
 
-    // POST: CITAS/Delete/5
+    // POST: FACTURAS/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
-    public ActionResult Delete(int idcita, Cita cita)
+    public ActionResult Delete(int idfactura, Factura factura)
     {
         try
         {
-            CRUD<Cita>.Delete(idcita);
+            CRUD<Factura>.Delete(idfactura);
             return RedirectToAction(nameof(Index));
         }
         catch (Exception ex)
         {
             ModelState.AddModelError("", ex.Message);
-            return View(cita);
+            return View(factura);
         }
     }
-
-
 }
