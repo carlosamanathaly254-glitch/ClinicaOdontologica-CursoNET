@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore;
 using ClinicaOdontologica.Consumer;
 using ClinicaOdontologicaModelos;
 
@@ -7,8 +6,9 @@ public class Program
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
-        CRUD<Cita>.Endpoint = "https://localhost:7294/api/Citas";
+            
+            CRUD<Cita>.Endpoint = "https://localhost:7294/api/Citas";
+            CRUD<Consultorio>.Endpoint = "https://localhost:7294/api/Consultorios";
             
 
             // Add services to the container.
