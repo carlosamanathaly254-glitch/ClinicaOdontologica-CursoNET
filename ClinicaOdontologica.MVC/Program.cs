@@ -12,6 +12,13 @@ public class Program
             CRUD<Cita>.Endpoint = "https://localhost:7294/api/Citas";
             CRUD<Consultorio>.Endpoint = "https://localhost:7294/api/Consultorios";
             CRUD<DetalleCita>.Endpoint = "https://localhost:7294/api/DetalleCitas";
+            CRUD<Especialidad>.Endpoint = "https://localhost:7294/api/Especialidades";
+            CRUD<Factura>.Endpoint = "https://localhost:7294/api/Facturas";
+            CRUD<HistorialMedico>.Endpoint = "https://localhost:7294/api/HistorialMedicos";
+            CRUD<Odontologo>.Endpoint = "https://localhost:7294/api/Odontologos";
+            CRUD<Paciente>.Endpoint = "https://localhost:7294/api/Pacientes";
+            CRUD<Receta>.Endpoint = "https://localhost:7294/api/Recetas";
+            CRUD<Tratamiento>.Endpoint = "https://localhost:7294/api/Tratamientos";
 
 
         // Add services to the container.
