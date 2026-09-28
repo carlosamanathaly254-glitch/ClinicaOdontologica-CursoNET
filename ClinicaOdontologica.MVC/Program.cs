@@ -9,7 +9,6 @@ public class Program
             var builder = WebApplication.CreateBuilder(args);
             
             
-            
             CRUD<Cita>.Endpoint = "https://localhost:7294/api/Citas";
             CRUD<Consultorio>.Endpoint = "https://localhost:7294/api/Consultorios";
             CRUD<DetalleCita>.Endpoint = "https://localhost:7294/api/DetalleCitas";
