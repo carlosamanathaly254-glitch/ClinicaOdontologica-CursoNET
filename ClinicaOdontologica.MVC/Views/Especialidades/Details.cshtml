@@ -25,10 +25,23 @@
         </dd>
     </dl>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Odontologos)
+	Odontologos
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Odontologos)
+    @if (Model.Odontologos != null && Model.Odontologos.Any())
+    {
+        <ul>
+            @foreach (var odontologo in Model.Odontologos)
+            {
+             
+                <li>@odontologo.Nombres @odontologo.Apellidos @odontologo.RegistroMedico </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <span class="text-muted">No hay odontólogos asignados a esta especialidad.</span>
+    }
         </dd>
     </dl>
 </div>

@@ -16,14 +16,18 @@ public class EspecialidadesController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Especialidad>>> GetEspecialidad()
     {
-        return await _context.Especialidades.ToListAsync();
+        return await _context.Especialidades.
+            Include(e => e.Odontologos)
+            .ToListAsync();
     }
 
     // GET: api/Especialidad/5
     [HttpGet("{idespecialidad}")]
     public async Task<ActionResult<Especialidad>> GetEspecialidad(int idespecialidad)
     {
-        var especialidad = await _context.Especialidades.FindAsync(idespecialidad);
+        var especialidad = await _context.Especialidades.
+            Include(e => e.Odontologos)
+            .FirstOrDefaultAsync(e => e.IdEspecialidad == idespecialidad);
 
         if (especialidad == null)
         {

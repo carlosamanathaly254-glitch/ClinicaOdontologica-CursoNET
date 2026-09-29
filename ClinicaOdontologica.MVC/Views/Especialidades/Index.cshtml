@@ -19,7 +19,7 @@
                 @Html.DisplayNameFor(model => model.Descripcion)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Odontologos)
+				Odontólogos
             </th>
             <th></th>
         </tr>
@@ -34,7 +34,19 @@
                 @Html.DisplayFor(model => item.Descripcion)
             </td>
             <td>
-                @Html.DisplayFor(model => item.Odontologos)
+                    @if (item.Odontologos != null && item.Odontologos.Any())
+                    {
+                        <ul>
+                            @foreach (var odontologo in item.Odontologos)
+                            {
+                                <li>@odontologo.Nombres @odontologo.Apellidos</li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <span class="text-muted">Sin odontólogos</span>
+                    }
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.IdEspecialidad">Edit</a> |
