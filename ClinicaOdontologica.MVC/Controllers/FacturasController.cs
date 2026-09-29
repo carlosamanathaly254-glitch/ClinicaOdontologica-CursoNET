@@ -18,10 +18,12 @@ public class FacturasController : Controller
     public ActionResult Details(int id)
     {
         var factura = CRUD<Factura>.GetById(id);
-        if (id == null)
+
+        if (factura == null)
         {
             return NotFound();
         }
+
         return View(factura);
     }
 

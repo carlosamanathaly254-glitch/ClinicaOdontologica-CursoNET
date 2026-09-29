@@ -45,18 +45,22 @@
             @Html.DisplayFor(model => model.EstadoPago)
         </dd>
     </dl>
-        <dt class = "col-sm-2">
+        <!--<dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.IdCita)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.IdCita)
-        </dd>
+        </dd>-->
     </dl>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.cita)
+            cita
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.cita)
+            @Html.DisplayFor(model => model.cita.odontologo.Nombres)
+	@Html.DisplayFor(model => model.cita.odontologo.Apellidos)
+	@Html.DisplayFor(model => model.cita.paciente.Nombres)
+	@Html.DisplayFor(model => model.cita.paciente.Apellidos)
+	@Html.DisplayFor(model => model.cita.Motivo)
         </dd>
     </dl>
 </div>

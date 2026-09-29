@@ -16,14 +16,24 @@ public class FacturasController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Factura>>> GetFactura()
     {
-        return await _context.Facturas.ToListAsync();
+        return await _context.Facturas
+            .Include(f => f.cita)
+                .ThenInclude(c => c.paciente)
+            .Include(f => f.cita)
+                .ThenInclude(c => c.Recetas)
+            .ToListAsync();
     }
 
     // GET: api/Factura/5
     [HttpGet("{idfactura}")]
     public async Task<ActionResult<Factura>> GetFactura(int idfactura)
     {
-        var factura = await _context.Facturas.FindAsync(idfactura);
+        var factura = await _context.Facturas
+            .Include(f => f.cita)
+                .ThenInclude(c => c.paciente)
+            .Include(f => f.cita)
+                .ThenInclude(c => c.Recetas)
+            .FirstOrDefaultAsync(f => f.IdFactura == idfactura);
 
         if (factura == null)
         {

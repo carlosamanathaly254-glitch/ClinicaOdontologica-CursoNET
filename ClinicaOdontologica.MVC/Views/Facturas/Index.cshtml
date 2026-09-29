@@ -27,11 +27,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.EstadoPago)
             </th>
+      
             <th>
-                @Html.DisplayNameFor(model => model.IdCita)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.cita)
+                cita
             </th>
             <th></th>
         </tr>
@@ -54,11 +52,9 @@
             <td>
                 @Html.DisplayFor(model => item.EstadoPago)
             </td>
+          
             <td>
-                @Html.DisplayFor(model => item.IdCita)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.cita)
+                @Html.DisplayFor(model => item.cita.DetallesCita)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.IdFactura">Edit</a> |
