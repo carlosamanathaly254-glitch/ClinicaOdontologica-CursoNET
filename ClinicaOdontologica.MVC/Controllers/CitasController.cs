@@ -12,10 +12,10 @@ public class CitasController : Controller
     }
 
     // GET: CITAS/Details/5
-    public ActionResult Details(int idcita)
+    public ActionResult Details(int id)
     {
-        var cita = CRUD<Cita>.GetById(idcita);
-        if (idcita == null)
+        var cita = CRUD<Cita>.GetById(id);
+        if (id == null)
         {
             return NotFound();
         }
@@ -49,9 +49,9 @@ public class CitasController : Controller
     }
 
     // GET: CITAS/Edit/5
-    public ActionResult Edit(int idcita)
+    public ActionResult Edit(int id)
     {
-        var cita = CRUD<Cita>.GetById(idcita);
+        var cita = CRUD<Cita>.GetById(id);
         if (cita == null)
         {
             return NotFound();
@@ -64,11 +64,11 @@ public class CitasController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult Edit(int idcita, Cita cita)
+    public ActionResult Edit(int id, Cita cita)
     {
         try
         {
-            CRUD<Cita>.Update(idcita, cita);
+            CRUD<Cita>.Update(id, cita);
             return RedirectToAction(nameof(Index));
 
         }
@@ -81,9 +81,9 @@ public class CitasController : Controller
     }
 
     // GET: CITAS/Delete/5
-    public ActionResult Delete(int idcita)
+    public ActionResult Delete(int id)
     {
-        var cita = CRUD<Cita>.GetById(idcita);
+        var cita = CRUD<Cita>.GetById(id);
         if(cita == null)
         {
             return NotFound();
@@ -95,11 +95,11 @@ public class CitasController : Controller
     // POST: CITAS/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
-    public ActionResult Delete(int idcita, Cita cita)
+    public ActionResult Delete(int id, Cita cita)
     {
         try
         {
-            CRUD<Cita>.Delete(idcita);
+            CRUD<Cita>.Delete(id);
             return RedirectToAction(nameof(Index));
         }
         catch (Exception ex)

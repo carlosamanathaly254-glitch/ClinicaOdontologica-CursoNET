@@ -21,30 +21,22 @@
             <th>
                 @Html.DisplayNameFor(model => model.EstadoCita)
             </th>
+          
             <th>
-                @Html.DisplayNameFor(model => model.IdPaciente)
+                Paciente
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdOdontologo)
+				Odontologo
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdConsultorio)
+				Consultorio
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.paciente)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.odontologo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.consultorio)
-            </th>
-            <th>
+           <!----<th>
                 @Html.DisplayNameFor(model => model.DetallesCita)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Recetas)
-            </th>
+            </th>-->
             <th></th>
         </tr>
     </thead>
@@ -60,30 +52,22 @@
             <td>
                 @Html.DisplayFor(model => item.EstadoCita)
             </td>
+           
             <td>
-                @Html.DisplayFor(model => item.IdPaciente)
+					@Html.DisplayFor(model => item.paciente.Nombres) @Html.DisplayFor(model => item.paciente.Apellidos)
             </td>
             <td>
-                @Html.DisplayFor(model => item.IdOdontologo)
+                @Html.DisplayFor(model => item.odontologo.Nombres) @Html.DisplayFor(model => item.odontologo.Apellidos)
             </td>
             <td>
-                @Html.DisplayFor(model => item.IdConsultorio)
+					@Html.DisplayFor(model => item.consultorio.NumeroSala) 
             </td>
-            <td>
-                @Html.DisplayFor(model => item.paciente)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.odontologo)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.consultorio)
-            </td>
-            <td>
+            <!--<td>
                 @Html.DisplayFor(model => item.DetallesCita)
             </td>
             <td>
                 @Html.DisplayFor(model => item.Recetas)
-            </td>
+            </td>-->
             <td>
                 <a asp-action="Edit" asp-route-id="@item.IdCita">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.IdCita">Details</a> |

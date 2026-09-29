@@ -15,10 +15,10 @@ public class FacturasController : Controller
     }
 
     // GET: FACTURAS/Details/5
-    public ActionResult Details(int idfactura)
+    public ActionResult Details(int id)
     {
-        var factura = CRUD<Factura>.GetById(idfactura);
-        if (idfactura == null)
+        var factura = CRUD<Factura>.GetById(id);
+        if (id == null)
         {
             return NotFound();
         }
@@ -52,9 +52,9 @@ public class FacturasController : Controller
     }
 
     // GET: FACTURAS/Edit/5
-    public ActionResult Edit(int idfactura)
+    public ActionResult Edit(int id)
     {
-        var factura = CRUD<Factura>.GetById(idfactura);
+        var factura = CRUD<Factura>.GetById(id);
         if (factura == null)
         {
             return NotFound();
@@ -67,11 +67,11 @@ public class FacturasController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult Edit(int idfactura, Factura factura)
+    public ActionResult Edit(int id, Factura factura)
     {
         try
         {
-            CRUD<Factura>.Update(idfactura, factura);
+            CRUD<Factura>.Update(id, factura);
             return RedirectToAction(nameof(Index));
 
         }
@@ -84,9 +84,9 @@ public class FacturasController : Controller
     }
 
     // GET: FACTURAS/Delete/5
-    public ActionResult Delete(int idfactura)
+    public ActionResult Delete(int id)
     {
-        var factura = CRUD<Factura>.GetById(idfactura);
+        var factura = CRUD<Factura>.GetById(id);
         if (factura == null)
         {
             return NotFound();
@@ -98,11 +98,11 @@ public class FacturasController : Controller
     // POST: FACTURAS/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
-    public ActionResult Delete(int idfactura, Factura factura)
+    public ActionResult Delete(int id, Factura factura)
     {
         try
         {
-            CRUD<Factura>.Delete(idfactura);
+            CRUD<Factura>.Delete(id);
             return RedirectToAction(nameof(Index));
         }
         catch (Exception ex)

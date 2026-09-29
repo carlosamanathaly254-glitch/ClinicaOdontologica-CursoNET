@@ -15,10 +15,10 @@ public class DetalleCitasController : Controller
     }
 
     // GET: DETALLECITAS/Details/5
-    public ActionResult Details(int iddetallecita)
+    public ActionResult Details(int id)
     {
-        var detallecita = CRUD<DetalleCita>.GetById(iddetallecita);
-        if (iddetallecita == null)
+        var detallecita = CRUD<DetalleCita>.GetById(id);
+        if (id == null)
         {
             return NotFound();
         }
@@ -52,9 +52,9 @@ public class DetalleCitasController : Controller
     }
 
     // GET: DETALLECITAS/Edit/5
-    public ActionResult Edit(int iddetallecita)
+    public ActionResult Edit(int id)
     {
-        var detallecita = CRUD<DetalleCita>.GetById(iddetallecita);
+        var detallecita = CRUD<DetalleCita>.GetById(id);
         if (detallecita == null)
         {
             return NotFound();
@@ -67,11 +67,11 @@ public class DetalleCitasController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult Edit(int iddetallecita, DetalleCita detalleCita)
+    public ActionResult Edit(int id, DetalleCita detalleCita)
     {
         try
         {
-            CRUD<DetalleCita>.Update(iddetallecita, detalleCita);
+            CRUD<DetalleCita>.Update(id, detalleCita);
             return RedirectToAction(nameof(Index));
 
         }
@@ -84,9 +84,9 @@ public class DetalleCitasController : Controller
     }
 
     // GET: DETALLECITAS/Delete/5
-    public ActionResult Delete(int iddetallecita)
+    public ActionResult Delete(int id)
     {
-        var detallecita = CRUD<DetalleCita>.GetById(iddetallecita);
+        var detallecita = CRUD<DetalleCita>.GetById(id);
         if (detallecita == null)
         {
             return NotFound();
@@ -98,11 +98,11 @@ public class DetalleCitasController : Controller
     // POST: DETALLECITAS/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
-    public ActionResult Delete(int iddetallecita, DetalleCita detalleCita)
+    public ActionResult Delete(int id, DetalleCita detalleCita)
     {
         try
         {
-            CRUD<DetalleCita>.Delete(iddetallecita);
+            CRUD<DetalleCita>.Delete(id);
             return RedirectToAction(nameof(Index));
         }
         catch (Exception ex)

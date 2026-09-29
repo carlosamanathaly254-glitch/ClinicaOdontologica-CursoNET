@@ -30,7 +30,7 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.EstadoCita)
         </dd>
-    </dl>
+    <!--</dl>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.IdPaciente)
         </dt>
@@ -50,43 +50,72 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.IdConsultorio)
+        </dd>-->
+    </dl>
+        <dt class = "col-sm-2">
+	        Paciente
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.paciente.Nombres) @Html.DisplayFor(model => model.paciente.Apellidos)
         </dd>
     </dl>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.paciente)
+	        Odontologo
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.paciente)
+            @Html.DisplayFor(model => model.odontologo.Nombres) @Html.DisplayFor(model => model.odontologo.Apellidos)
         </dd>
     </dl>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.odontologo)
+	        Consultorio
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.odontologo)
+            @Html.DisplayFor(model => model.consultorio.NumeroSala)
         </dd>
     </dl>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.consultorio)
+	        DetallesCita
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.consultorio)
-        </dd>
+    @if (Model.DetallesCita != null && Model.DetallesCita.Any())
+    {
+        <div class="list-group">
+            @foreach (var detalle in Model.DetallesCita)
+            {
+                <div class="list-group-item mb-2 border rounded p-3 bg-light">
+                    <p class="mb-1"><strong>Costo:</strong> @detalle.CostoAplicado</p>
+                    <p class="mb-0"><strong>Observaciones:</strong> @detalle.Observaciones</p>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <span>Sin detalles registrados</span>
+    }
+    </dd>
     </dl>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DetallesCita)
+	Recetas
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DetallesCita)
-        </dd>
-    </dl>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Recetas)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Recetas)
-        </dd>
-    </dl>
+<dd class="col-sm-10">
+    @if (Model.Recetas != null && Model.Recetas.Any())
+    {
+        <div class="list-group">
+            @foreach (var receta in Model.Recetas)
+            {
+                <div class="list-group-item mb-2 border rounded p-3 bg-light">
+                    <p class="mb-1"><strong>Indicaciones:</strong> @receta.Indicaciones</p>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <span>Sin recetas registradas</span>
+    }
+</dd>
+</dl>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.IdCita">Edit</a> |

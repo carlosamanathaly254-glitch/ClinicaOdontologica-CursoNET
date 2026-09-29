@@ -16,9 +16,9 @@ public class EspecialidadesController : Controller
     }
 
     // GET: ESPECIALIDADS/Details/5
-    public ActionResult Details(int idespecialidades)
+    public ActionResult Details(int id)
     {
-        var especialidades = CRUD<Especialidad>.GetById(idespecialidades);
+        var especialidades = CRUD<Especialidad>.GetById(id);
         if (especialidades == null)
         {
             return NotFound();
@@ -53,9 +53,9 @@ public class EspecialidadesController : Controller
     }
 
     // GET: ESPECIALIDADS/Edit/5
-    public ActionResult Edit(int idespecialidad)
+    public ActionResult Edit(int id)
     {
-        var especialidad = CRUD<Especialidad>.GetById(idespecialidad);
+        var especialidad = CRUD<Especialidad>.GetById(id);
         if (especialidad == null)
         {
             return NotFound();
@@ -68,11 +68,11 @@ public class EspecialidadesController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult Edit(int idespecialidad, Especialidad especialidad)
+    public ActionResult Edit(int id, Especialidad especialidad)
     {
         try
         {
-            CRUD<Especialidad>.Update(idespecialidad, especialidad);
+            CRUD<Especialidad>.Update(id, especialidad);
             return RedirectToAction(nameof(Index));
 
         }
@@ -85,9 +85,9 @@ public class EspecialidadesController : Controller
     }
 
     // GET: ESPECIALIDADS/Delete/5
-    public ActionResult Delete(int idespecialidad)
+    public ActionResult Delete(int id)
     {
-        var especialidad = CRUD<Especialidad>.GetById(idespecialidad);
+        var especialidad = CRUD<Especialidad>.GetById(id);
         if (especialidad == null)
         {
             return NotFound();
@@ -99,11 +99,11 @@ public class EspecialidadesController : Controller
     // POST: ESPECIALIDADS/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
-    public ActionResult Delete(int idespecialidad, Especialidad especialidad)
+    public ActionResult Delete(int id, Especialidad especialidad)
     {
         try
         {
-            CRUD<Especialidad>.Delete(idespecialidad);
+            CRUD<Especialidad>.Delete(id);
             return RedirectToAction(nameof(Index));
         }
         catch (Exception ex)
