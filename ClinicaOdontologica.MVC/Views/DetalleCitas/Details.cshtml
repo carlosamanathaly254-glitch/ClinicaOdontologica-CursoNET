@@ -24,7 +24,7 @@
             @Html.DisplayFor(model => model.Observaciones)
         </dd>
     </dl>
-        <dt class = "col-sm-2">
+        <!--<dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.IdCita)
         </dt>
         <dd class = "col-sm-10">
@@ -36,20 +36,40 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.IdTratamiento)
+        </dd>-->
+    </dl>
+        <dt class = "col-sm-2">
+            Cita
+        </dt>
+        <dd class = "col-sm-10">
+    @if (Model.cita != null)
+    {
+            <p class="mb-1"><strong>Fecha:</strong> @Model.cita.FechaCita</p>
+            <p class="mb-1"><strong>Motivo:</strong> @Model.cita.Motivo</p>
+            <p class="mb-1"><strong>Estado:</strong> @Model.cita.EstadoCita</p>
+            <p class="mb-1"><strong>Paciente:</strong> @Model.cita.paciente?.Nombres @Model.cita.paciente?.Apellidos</p>
+            <p class="mb-1"><strong>Odontólogo:</strong> @Model.cita.odontologo?.Nombres @Model.cita.odontologo?.Apellidos</p>
+            <p class="mb-0"><strong>Consultorio:</strong> Sala @Model.cita.consultorio?.NumeroSala</p>
+    }
+    else
+    {
+        <span>Sin cita asociada</span>
+    }
         </dd>
     </dl>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.cita)
+	Tratamiento
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.cita)
-        </dd>
-    </dl>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.tratamiento)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.tratamiento)
+    @if (Model.tratamiento != null)
+    {
+            <p class="mb-1"><strong>Nombre:</strong> @Model.tratamiento.nombreTratamiento</p>
+            <p class="mb-0"><strong>Descripción:</strong> @Model.tratamiento.costoBase</p>
+    }
+    else
+    {
+        <span>Sin tratamiento asociado</span>
+    }
         </dd>
     </dl>
 </div>

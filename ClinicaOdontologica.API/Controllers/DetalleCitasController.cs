@@ -16,14 +16,23 @@ public class DetalleCitasController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<DetalleCita>>> GetDetalleCita()
     {
-        return await _context.DetalleCitas.ToListAsync();
+        return await _context.DetalleCitas.
+            Include(d => d.cita).
+            Include(d => d.tratamiento)
+            .ToListAsync();
     }
 
     // GET: api/DetalleCita/5
     [HttpGet("{iddetallecita}")]
     public async Task<ActionResult<DetalleCita>> GetDetalleCita(int iddetallecita)
     {
-        var detallecita = await _context.DetalleCitas.FindAsync(iddetallecita);
+        var detallecita = await _context.DetalleCitas.
+            Include(d => d.cita)
+                .ThenInclude(c => c.paciente).
+            Include(d => d.cita)
+                .ThenInclude(c => c.odontologo).
+            Include(d => d.tratamiento)
+            .FirstOrDefaultAsync(d => d.IdDetalleCita == iddetallecita);
 
         if (detallecita == null)
         {

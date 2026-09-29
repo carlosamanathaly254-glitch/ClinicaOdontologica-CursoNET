@@ -18,17 +18,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.Observaciones)
             </th>
+   
             <th>
-                @Html.DisplayNameFor(model => model.IdCita)
+				Cita
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdTratamiento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.cita)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.tratamiento)
+				Tratamiento
             </th>
             <th></th>
         </tr>
@@ -42,17 +37,12 @@
             <td>
                 @Html.DisplayFor(model => item.Observaciones)
             </td>
+           
             <td>
-                @Html.DisplayFor(model => item.IdCita)
+                @Html.DisplayFor(model => item.cita.FechaCita)
             </td>
             <td>
-                @Html.DisplayFor(model => item.IdTratamiento)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.cita)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.tratamiento)
+                @Html.DisplayFor(model => item.tratamiento.nombreTratamiento)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.IdDetalleCita">Edit</a> |
