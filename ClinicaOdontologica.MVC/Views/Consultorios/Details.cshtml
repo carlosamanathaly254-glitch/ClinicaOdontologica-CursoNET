@@ -32,10 +32,26 @@
         </dd>
     </dl>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Citas)
+            Citas
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Citas)
+    @if (Model.Citas != null && Model.Citas.Any())
+    {
+        <div class="list-group">
+            @foreach (var cita in Model.Citas)
+            {
+                <div class="list-group-item mb-2 border rounded p-3 bg-light">
+                    <p class="mb-1"><strong>Fecha:</strong> @cita.FechaCita</p>
+                    <p class="mb-1"><strong>Motivo:</strong> @cita.Motivo</p>
+                    <p class="mb-0"><strong>Estado:</strong> @cita.EstadoCita</p>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <span>No hay citas registradas en este consultorio</span>
+    }
         </dd>
     </dl>
 </div>
